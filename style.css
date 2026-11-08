@@ -477,34 +477,42 @@ main {
   }
 }
 
-.cta-float {
-  position: absolute;
-  z-index: 3;
-  left: 50%;
-  bottom: 22px;
-  transform: translateX(-50%);
+.hero-cta-wrap {
+  position: relative;
+  z-index: 5;
   display: flex;
+  justify-content: center;
+  margin-top: -34px;
+  width: 100%
+}
+
+.cta-float {
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px;
+  padding: 5px 6px;
   border-radius: 99px;
-  background: #12151cb3;
-  backdrop-filter: blur(10px);
-  border: 1px solid #ffffff22;
-  box-shadow: 0 10px 30px -12px #000
+  background: rgba(18, 21, 28, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.9);
+  white-space: nowrap
 }
 
 .cta-float .btn {
   padding: 9px 20px;
   font-size: .88rem;
-  box-shadow: none
+  box-shadow: none;
+  white-space: nowrap
 }
 
 .btn-link {
   padding: 9px 18px;
   font-size: .88rem;
   font-weight: 600;
-  color: var(--text)
+  color: var(--text);
+  white-space: nowrap
 }
 
 .btn-link:hover {
@@ -555,46 +563,105 @@ main {
 
 @media(max-width:900px) {
   .hero {
-    min-height: 0;
-    padding-bottom: 28px
+    min-height: auto;
+    height: auto;
+    padding: 84px 16px 32px
   }
 
   .stage {
     min-height: 0;
-    margin-top: 8px
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%
   }
 
   .stage video {
-    width: min(100%, 560px)
+    width: min(100%, 380px);
+    height: auto;
+    display: block
   }
 
+  .arc {
+    width: min(85vw, 380px);
+    height: min(45vw, 190px)
+  }
+
+  /* Completely hide floating tags on mobile & tablet so character animation is 100% clear & unblocked */
+  .tag,
+  .t1,
+  .t2,
   .t3,
   .t4,
   .t5,
   .t6 {
-    display: none
+    display: none !important
   }
 
-  .t1 {
-    left: 2%;
-    top: 28%
+  /* Place CTA button bar comfortably BELOW the character video on mobile */
+  .hero-cta-wrap {
+    margin-top: 18px;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    width: 100%
   }
 
-  .t2 {
-    right: 2%;
-    top: 20%
+  .cta-float {
+    white-space: nowrap;
+    padding: 5px 6px;
+    max-width: 95%
   }
 
-  .tag {
-    font-size: .72rem;
-    padding: 5px 10px
+  .cta-float .btn,
+  .cta-float .btn-link {
+    white-space: nowrap;
+    font-size: .86rem;
+    padding: 8px 16px
   }
 
-  .quote,
+  .quote {
+    position: static;
+    width: min(480px, 100%);
+    margin: 24px auto 0;
+    padding: 18px 20px;
+    border-radius: 16px;
+    background: rgba(18, 21, 28, 0.75);
+    border: 1px solid rgba(34, 211, 238, 0.22);
+    box-shadow: 0 8px 24px -10px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-size: .88rem;
+    line-height: 1.65;
+    text-align: left
+  }
+
   .exp {
     position: static;
-    width: min(420px, 100%);
-    margin-top: 22px
+    width: fit-content;
+    max-width: 380px;
+    margin: 20px auto 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(14, 18, 25, 0.8);
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    border-radius: 16px;
+    padding: 12px 28px;
+    box-shadow: 0 8px 24px -10px rgba(99, 102, 241, 0.25)
+  }
+
+  .exp strong {
+    font-size: 1.85rem;
+    margin-bottom: 2px
+  }
+
+  .exp span {
+    font-size: .82rem;
+    line-height: 1.4
   }
 }
 
@@ -2284,7 +2351,8 @@ footer {
 /* Tablets (<= 860px) */
 @media(max-width:860px) {
   .hero {
-    min-height: 0;
+    min-height: auto;
+    height: auto;
     padding-bottom: 32px
   }
 
