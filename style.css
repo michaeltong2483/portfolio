@@ -1731,6 +1731,45 @@ h2 small {
   aspect-ratio: 16/9.2
 }
 
+.proj-tiktok-card {
+  margin-top: 24px
+}
+
+.proj-tiktok-gallery {
+  display: grid;
+  grid-template-columns: 1.42fr .88fr;
+  gap: 16px;
+  margin: 16px 0;
+  align-items: stretch
+}
+
+.proj-tiktok-channel-link {
+  aspect-ratio: 16/9.5;
+  background: #000
+}
+
+.proj-tiktok-video-link {
+  aspect-ratio: 9/11.5;
+  background: #000
+}
+
+.proj-tiktok-video-link .proj-proof-img {
+  object-fit: cover;
+  object-position: top center
+}
+
+@media(max-width:768px) {
+  .proj-tiktok-gallery {
+    grid-template-columns: 1fr;
+    gap: 14px
+  }
+
+  .proj-tiktok-video-link {
+    aspect-ratio: 9/14;
+    max-height: 480px
+  }
+}
+
 .proj-proof-item {
   background: #0b0e14;
   border: 1px solid var(--line);
